@@ -1,0 +1,75 @@
+.transactions-container {
+  padding: 2rem;
+  background: linear-gradient(to right, #fceabb, #f8b500);
+  min-height: 85vh;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.transactions-heading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #2d3436;
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.transaction-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transaction-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.transaction-details h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.txn-date {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.transaction-meta {
+  text-align: right;
+}
+
+.txn-amount {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: block;
+}
+
+.txn-status {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.txn-status.success {
+  background-color: #d4edda;
+  color: #2e7d32;
+}
+
+.txn-status.failed {
+  background-color: #f8d7da;
+  color: #c62828;
+}

@@ -1,0 +1,59 @@
+.kyc-container {
+  padding: 2rem;
+  background: linear-gradient(to right, #fdfcfb, #e2d1c3);
+  min-height: 85vh;
+  color: #2c3e50;
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 600px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.kyc-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #34495e;
+}
+
+.kyc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.kyc-form input[type="text"],
+.kyc-form input[type="date"],
+.kyc-form input[type="file"] {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.kyc-form label {
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.kyc-form button {
+  background-color: #ff914d;
+  border: none;
+  color: white;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.kyc-form button:hover {
+  background-color: #e1701a;
+}
+
+.kyc-status {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: green;
+  text-align: center;
+}

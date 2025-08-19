@@ -1,0 +1,21 @@
+# Node modules
+**/node_modules
+
+# Logs
+**/logs
+*.log
+
+# Environment files
+**/.env
+
+# Build folders
+**/dist
+**/build
+
+# IDE/editor settings
+.vscode
+*.swp
+
+
+
+
