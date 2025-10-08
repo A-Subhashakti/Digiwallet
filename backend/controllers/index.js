@@ -1,7 +1,7 @@
 module.exports = {
-  authController: require('../authController'),
-  kycController: require('../kycController'),
-  paymentController: require('../paymentController'),
-  transactionController: require('../transactionController'),
-  walletController: require('../walletController'),
+  authController: require('../authcontroller'),
+  kycController: require('../kyccontroller'),
+  paymentController: require('../paymentcontroller'),
+  transactionController: require('../transactioncontroller'),
+  walletController: require('../walletcontroller'),
 };

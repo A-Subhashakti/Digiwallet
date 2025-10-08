@@ -1,36 +1,39 @@
-import  { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/auth.css';
-
-import API from '../api/api.jsx';  
-
+import API from '../api/api.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebookF, faGithub } from '@fortawesome/free-brands-svg-icons';
-
-
+import { AuthContext } from "../context/auth.jsx";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
+  
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+    if (token) {
+      login(token); 
+      navigate("/dashboard");
+    }
+  }, []);
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const response = await API.post('/auth/login', { email, password });
-
-      
-      const { token } = response.data;
-      localStorage.setItem('token', token);
-
-      console.log('Login successful');
-      navigate('/dashboard'); // or wherever your protected page is
+      const response = await API.post("/auth/login", { email, password });
+      login(response.data.token);
+      navigate("/dashboard");
     } catch (err) {
-      console.error('Login failed:', err.response?.data || err.message);
-      setError(err.response?.data?.message || 'Invalid email or password');
+      console.error("Login failed:", err.response?.data || err.message);
+      setError(err.response?.data?.message || "Invalid email or password");
     }
   };
 
@@ -44,6 +47,8 @@ const Login = () => {
 
       <div className="login-box">
         <h3 className="login-heading">Sign In</h3>
+
+        
         <form className="login-form" onSubmit={handleSubmit}>
           <label>
             E-mail
@@ -71,19 +76,20 @@ const Login = () => {
           <button type="submit" className="login-btn">Sign In</button>
         </form>
 
+      
         <div className="alt-signup">
           <p>or sign in with</p>
           <div className="social-icons">
-            <button className="icon-btn">
+            <a href="http://localhost:5000/api/auth/google" className="icon-btn">
               <FontAwesomeIcon icon={faGoogle} size="lg" />
-                   </button>
-                     <button className="icon-btn">
-                     <FontAwesomeIcon icon={faFacebookF} size="lg" />
-                     </button>
-                     <button className="icon-btn">
-                      <FontAwesomeIcon icon={faGithub} size="lg" />
-                     </button>
-                     </div>
+            </a>
+            <a href="http://localhost:5000/api/auth/facebook" className="icon-btn">
+              <FontAwesomeIcon icon={faFacebookF} size="lg" />
+            </a>
+            <a href="http://localhost:5000/api/auth/github" className="icon-btn">
+              <FontAwesomeIcon icon={faGithub} size="lg" />
+            </a>
+          </div>
         </div>
 
         <p className="signin-link">

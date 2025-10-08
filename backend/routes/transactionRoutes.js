@@ -1,10 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { transfer } = require('../controllers/transactioncontroller');
-const { protect } = require('../middleware/authMiddleware');
+const transactioncontroller = require("../controllers/transactioncontroller");
+const auth = require("../middleware/authMiddleware");
 
-router.use(protect);
-
-router.post('/transfer', transfer);    
+router.get("/me", auth, transactioncontroller.myTransactions);
 
 module.exports = router;

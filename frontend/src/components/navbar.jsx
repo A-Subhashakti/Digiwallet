@@ -1,12 +1,20 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import '../assets/auth.css';
+import React, { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.jsx";
+import "../assets/auth.css";
 
 function Navbar() {
   const location = useLocation();
-  const hideNavbar = ['/login', '/register', '/'].includes(location.pathname);
+  const navigate = useNavigate();
+  const { token, logout } = useContext(AuthContext);
 
+  const hideNavbar = ["/login", "/register", "/"].includes(location.pathname);
   if (hideNavbar) return null;
+
+  const handleLogout = () => {
+    logout(); 
+    navigate("/login");
+  };
 
   return (
     <nav className="navbar">
@@ -20,8 +28,14 @@ function Navbar() {
         <li><Link to="/kyc">KYC</Link></li>
       </ul>
       <div className="navbar-auth">
-        <Link to="/login" className="btn-login">Login</Link>
-        <Link to="/register" className="btn-register">Sign Up</Link>
+        {!token ? (
+          <>
+            <Link to="/login" className="btn-login">Login</Link>
+            <Link to="/register" className="btn-register">Sign Up</Link>
+          </>
+        ) : (
+          <button onClick={handleLogout} className="btn-login">Logout</button>
+        )}
       </div>
     </nav>
   );

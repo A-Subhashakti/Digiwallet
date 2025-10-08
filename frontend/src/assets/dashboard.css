@@ -1,71 +1,375 @@
+
+
 .dashboard-container {
+  background: #f6f8fb;
+  min-height: 100vh;
   padding: 2rem;
-  background: linear-gradient(to right, #eef2f3, #d3cce3);
-  min-height: 80vh;
-  color: #222;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.dashboard-welcome {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #5b2c6f;
-}
-
-.dashboard-cards {
+  font-family: "Poppins", sans-serif;
+  color: #1a1a1a;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 2rem; 
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.dashboard-header a {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.dashboard-header a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+
+.wallet-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2rem;
 }
 
-.dashboard-card {
-  flex: 1 1 250px;
+.wallet-summary > div {
+  background: white;
+  border-radius: 1rem;
   padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
 }
 
-.dashboard-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+.wallet-summary > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 
-.dashboard-card h3 {
+.wallet-summary h3 {
+  font-size: 1rem;
+  color: #555;
   margin-bottom: 0.5rem;
-  color: #333;
 }
 
-.balance {
-  border-left: 6px solid #27ae60;
+.wallet-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
 }
 
-.transactions {
-  border-left: 6px solid #3498db;
+.wallet-summary small {
+  color: #6b7280;
 }
 
-.kyc {
-  border-left: 6px solid #f39c12;
+
+.wallet-btn {
+  display: block;
+  text-align: center;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: white;
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 0.8rem; 
+  transition: all 0.2s ease;
 }
 
-.dashboard-links {
+.wallet-btn:hover {
+  background: linear-gradient(90deg, #1e40af, #2563eb);
+  transform: scale(1.02);
+}
+
+
+.transaction-summary {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-top: 2rem; 
+}
+
+.transaction-summary h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.transaction-summary table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.transaction-summary th {
+  text-align: left;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.transaction-summary td {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.transaction-summary tr:hover {
+  background: #f9fafb;
+}
+
+
+.transaction-summary td:nth-child(3) {
+  font-weight: 600;
+  color: #111827;
+}
+
+
+.analytics {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-top: 2rem;
+}
+
+
+.kyc-section {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-top: 2rem; 
+}
+
+.kyc-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.kyc-section p {
+  margin-bottom: 1rem;
+  color: #4b5563;
+}
+
+.kyc-section a {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.kyc-section a:hover {
+  background: linear-gradient(90deg, #d97706, #f59e0b);
+  transform: scale(1.02);
+}
+
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .wallet-btn {
+    margin-top: 0.8rem;
+  }
+
+  .dashboard-container {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+}
+
+
+.currency-converter {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-top: 2rem;
+}
+
+.currency-converter h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.converter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.converter-input input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.converter-selects {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-.dashboard-link {
-  padding: 0.8rem 1.2rem;
-  background-color: #6c5ce7;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.3s;
-  font-weight: bold;
+.converter-selects select {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  background-color: #f9fafb;
 }
 
-.dashboard-link:hover {
-  background-color: #341f97;
+.converter-form button {
+  padding: 0.8rem;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
 }
+
+.converter-form button:hover {
+  background: linear-gradient(90deg, #1d4ed8, #2563eb);
+}
+
+.converter-result {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.converter-result span {
+  color: #2563eb;
+}
+
+
+
+.bank-section {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-top: 2rem;
+}
+
+.bank-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.bank-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.bank-details p {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.bank-btn {
+  background: #2563eb; 
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.6rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  display: inline-block;
+  transition: background 0.2s ease, transform 0.1s ease;
+  text-decoration: none;
+}
+
+.bank-btn:hover {
+  background: #1d4ed8;
+  transform: scale(1.03);
+}
+
+
+.card-section {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-top: 2rem;
+}
+
+.card-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card-item {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  padding: 1.2rem;
+  border-radius: 1rem;
+  width: 240px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.card-item:hover {
+  transform: scale(1.03);
+}
+
+.card-number {
+  font-family: monospace;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.card-name {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+
+.add-card-btn {
+  background: #2563eb; 
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.6rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  display: inline-block;
+  transition: background 0.2s ease, transform 0.1s ease;
+  text-decoration: none;
+}
+
+.add-card-btn:hover {
+  background: #1d4ed8;
+  transform: scale(1.03);
+}
+
+

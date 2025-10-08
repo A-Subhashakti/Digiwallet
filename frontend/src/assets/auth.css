@@ -214,3 +214,46 @@
 .footer-links a:hover {
   color: #ff4081;
 }
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+
+.icon-btn[href*="google"] {
+  background-color: #64ef42d8;
+}
+
+.icon-btn[href*="facebook"] {
+  background-color: #3B5998;
+}
+
+.icon-btn[href*="github"] {
+  background-color: #24292F;
+}
+
+
+.icon-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.icon-btn svg {
+  transition: transform 0.2s;
+}
